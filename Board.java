@@ -61,6 +61,8 @@ public class Board {
             board[unit[0] + x][unit[1] + y] = abjad;
         }
     }
+
+    // Cek apakah papan masih ada space kosong
     public boolean hasEmptySpace() {
         for (int row = 0; row < N; row++) {
             for (int unit = 0; unit < M; unit++) {
