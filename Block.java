@@ -24,37 +24,24 @@ public class Block {
         int minY = 99999;
 
         for (int[] blockCoord : block) {
-            minX = Math.min(minX, blockCoord[0]);
-            minY = Math.min(minY, blockCoord[1]);
+            minY = Math.min(minX, blockCoord[0]);
+            minX = Math.min(minY, blockCoord[1]);
         }
 
         List<int[]> normalizedBlockCoords = new ArrayList<>();
         for (int[] blockCoord : block) {
-            normalizedBlockCoords.add(new int[]{blockCoord[0] - minX, blockCoord[1] - minY});
+            normalizedBlockCoords.add(new int[]{blockCoord[0] - minY, blockCoord[1] - minX});
         }
         return normalizedBlockCoords;
     }
+    
     // Rotasi koordinat blok 90 derajat searah jarum jam
     private List<int[]> rotateBlock90(List<int[]> block) {
         List<int[]> rotatedBlockCoords = new ArrayList<>();
         for (int[] coord : block) {
-            rotatedBlockCoords.add(new int[]{coord[1], -coord[0]}); // (x,y) -> (y,-x)
+            rotatedBlockCoords.add(new int[]{coord[1], -coord[0]}); // (y,x) -> (x,-y)
         }
         return normalizeBlockCoords(rotatedBlockCoords);
-    }
-
-    private List<int[]> mirrorXBlock(List<int[]> block) {
-        List<int[]> mirroredBlockCoords = new ArrayList<>();
-
-        int maxX = -99999;
-
-        for (int[] blockCoord : block) {
-            maxX = Math.max(maxX, blockCoord[0]);
-        }
-        for (int[] coord : block) {
-            mirroredBlockCoords.add(new int[]{maxX - coord[0], coord[1]});
-        }
-        return normalizeBlockCoords(mirroredBlockCoords);
     }
 
     private List<int[]> mirrorYBlock(List<int[]> block) {
@@ -63,10 +50,24 @@ public class Block {
         int maxY = -99999;
 
         for (int[] blockCoord : block) {
-            maxY = Math.max(maxY, blockCoord[1]);
+            maxY = Math.max(maxY, blockCoord[0]);
         }
         for (int[] coord : block) {
-            mirroredBlockCoords.add(new int[]{coord[0], maxY - coord[1]});
+            mirroredBlockCoords.add(new int[]{maxY - coord[0], coord[1]});
+        }
+        return normalizeBlockCoords(mirroredBlockCoords);
+    }
+
+    private List<int[]> mirrorXBlock(List<int[]> block) {
+        List<int[]> mirroredBlockCoords = new ArrayList<>();
+
+        int maxX = -99999;
+
+        for (int[] blockCoord : block) {
+            maxX = Math.max(maxX, blockCoord[1]);
+        }
+        for (int[] coord : block) {
+            mirroredBlockCoords.add(new int[]{coord[0], maxX - coord[1]});
         }
         return normalizeBlockCoords(mirroredBlockCoords);
     }

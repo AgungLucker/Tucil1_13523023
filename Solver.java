@@ -16,7 +16,7 @@ public class Solver {
         }
     }
 
-    // Gette
+    // Getter
     public Board getSolvedBoard() {
         return new Board(this.board);
     }
@@ -29,22 +29,23 @@ public class Solver {
         
         // Coba semua urutan permutasi blok 
         for (List<Block> blockOrder : blockPermutations) {
-            if (tryCases(blockOrder, new Board(this.board), 0)) {
+            if (tryOrder(blockOrder, new Board(this.board), 0)) {
                 return true;
             }
         }
         System.out.println("Tidak ada solusi yang ditemukan.");
         return false;
     }
-    // Mencoba setiap
-    private boolean tryCases(List<Block> blockOrder, Board currentBoard, int blockIdx) {
+
+    // Mencoba menempatkan blok dari urutan permutasi blok
+    private boolean tryOrder(List<Block> blockOrder, Board currentBoard, int blockIdx) {
         if (blockIdx >= blockOrder.size()) {
             casesCount++;
-            if (!currentBoard.hasEmptySpace()) { // Semua blok telah ditempatkan dan papan juga penuh
+            if (!currentBoard.hasEmptySpace()) { 
                 this.board = currentBoard.getBoard(); 
                 return true; 
             }
-            return false; 
+            return false; // Semua blok telah ditempatkan tapi papan tidak penuh
         }
 
         Block block = blockOrder.get(blockIdx);
@@ -61,20 +62,20 @@ public class Solver {
     }
     private boolean tryPlaceBlock(List<Block> blockOrder, Board currentBoard, int blockIdx, List<int[]> blockTransformation) {
         boolean placed = false;
-        for (int x = 0; x < board.length; x++) {
-            for (int y = 0; y < board[0].length; y++) {
-                if (currentBoard.canPlaceBlock(blockTransformation, x, y)) {
+        for (int y = 0; y < board.length; y++) {
+            for (int x = 0; x < board[0].length; x++) {
+                if (currentBoard.canPlaceBlock(blockTransformation, y, x)) {
                     placed = true;
-                    Board newBoard = new Board(currentBoard); // Buat salinan papan
-                    newBoard.placeBlock(blockTransformation, x, y, blockOrder.get(blockIdx).getAbjad());
+                    Board newBoard = new Board(currentBoard); // copy temporary papan baru
+                    newBoard.placeBlock(blockTransformation, y, x, blockOrder.get(blockIdx).getAbjad());
 
-                    if (tryCases(blockOrder, newBoard, blockIdx + 1)) {
+                    if (tryOrder(blockOrder, newBoard, blockIdx + 1)) {
                         return true;
                     }
                 }
             }
         }
-        if (!placed) {
+        if (!placed) { // Jika blok tidak bisa ditempatkan dalam setiap posisi
             casesCount++;
         }
         return false;

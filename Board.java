@@ -46,20 +46,20 @@ public class Board {
     }
 
     // Cek blok dapat ditempatkan pada lokasi yang kosong dalam board
-    public boolean canPlaceBlock(List<int[]> block, int x, int y) {
+    public boolean canPlaceBlock(List<int[]> block, int y, int x) {
         for (int[] unit : block) {
-            int xPosition = unit[0] + x;
-            int yPosition = unit[1] + y;
-            if ((xPosition >= N || yPosition >= M || board[xPosition][yPosition] != '0' || board[xPosition][yPosition] == '.')) {
+            int yPosition = unit[0] + y;
+            int xPosition = unit[1] + x;
+            if ((yPosition >= N || xPosition >= M || board[yPosition][xPosition] != '0' || board[yPosition][xPosition] == '.')) {
                 return false;
             }
         }
         return true;
     }
 
-    public void placeBlock(List<int[]> block, int x, int y, char abjad) {
+    public void placeBlock(List<int[]> block, int y, int x, char abjad) {
         for (int[] unit : block) {
-            board[unit[0] + x][unit[1] + y] = abjad;
+            board[unit[0] + y][unit[1] + x] = abjad;
         }
     }
 

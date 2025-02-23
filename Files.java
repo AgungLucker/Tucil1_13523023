@@ -10,7 +10,7 @@ public class Files {
     private char[][] customBoard;
     private boolean validFileFormat = true;
     private boolean validCustomBoard = true;
-     private boolean validBlock = true;
+    private boolean validBlock = true;
     private Map<Character, List<int[]>> blocks;
 
     // Konstruktor baru yang menerima File sebagai parameter
@@ -25,7 +25,7 @@ public class Files {
         }
     }
 
-    // Metode untuk memeriksa validitas file
+    // Cek apakah isi input file valid
     public int isValid() {
         if (dimensiDanJumlahAbjad == null || dimensiDanJumlahAbjad.length < 3) {
             return 1;

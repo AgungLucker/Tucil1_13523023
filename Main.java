@@ -104,7 +104,7 @@ class SolverGUI extends JFrame {
 
         resultPane = new JTextPane();
         resultPane.setEditable(false);
-        resultPane.setFont(new Font("Monospaced", Font.BOLD, 18));
+        resultPane.setFont(new Font("Monospaced", Font.BOLD, 17));
         JScrollPane scrollPane = new JScrollPane(resultPane);
 
         JPanel outputPanel = new JPanel(new BorderLayout());
