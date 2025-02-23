@@ -52,7 +52,6 @@ public class Solver {
 
         // Coba semua transformasi (Rotasi + mirror) dari blok
         for (List<int[]> blockTransformation : blockTransformations) {
-            casesCount++; 
             if (tryPlaceBlock(blockOrder, currentBoard, blockIdx, blockTransformation)) {
                 return true;
             }
@@ -61,9 +60,11 @@ public class Solver {
         return false;
     }
     private boolean tryPlaceBlock(List<Block> blockOrder, Board currentBoard, int blockIdx, List<int[]> blockTransformation) {
+        boolean placed = false;
         for (int x = 0; x < board.length; x++) {
             for (int y = 0; y < board[0].length; y++) {
                 if (currentBoard.canPlaceBlock(blockTransformation, x, y)) {
+                    placed = true;
                     Board newBoard = new Board(currentBoard); // Buat salinan papan
                     newBoard.placeBlock(blockTransformation, x, y, blockOrder.get(blockIdx).getAbjad());
 
@@ -72,6 +73,9 @@ public class Solver {
                     }
                 }
             }
+        }
+        if (!placed) {
+            casesCount++;
         }
         return false;
     }

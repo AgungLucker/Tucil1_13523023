@@ -136,9 +136,9 @@ public class Files {
     }
 
     // Simpan solusi ke file
-    public void solutionToFile(char[][] board) {
+    public void solutionToFile(char[][] board, String filename) {
         try {
-            File outputFile = new File("output.txt");
+            File outputFile = new File(filename);
             outputFile.createNewFile();
             Formatter fileWriter = new Formatter(outputFile);
             for (char[] row : board) {

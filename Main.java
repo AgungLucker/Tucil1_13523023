@@ -188,52 +188,59 @@ class SolverGUI extends JFrame {
     }
 
     private void saveSolutionToFile() {
-        if (solvedBoard != null) {
-            fileReader.solutionToFile(solvedBoard.getBoard());
-            statusLabel.setText("Solusi disimpan ke output.txt.");
+        String fileName = JOptionPane.showInputDialog(this, "Masukkan nama file:", "Simpan File", JOptionPane.PLAIN_MESSAGE);
+        fileName = fileName.trim();
+
+        if (!fileName.trim().isEmpty() && fileName.endsWith(".txt")) {        
+            fileReader.solutionToFile(solvedBoard.getBoard(), fileName);
+            statusLabel.setText("Solusi disimpan ke " + fileName);
+            JOptionPane.showMessageDialog(this, "Solusi berhasil disimpan sebagai: " + fileName);
+        } else {
+            statusLabel.setText("Penyimpanan dibatalkan.");
         }
+    
     }
+
 
     private void displayResult(Board solvedBoard, long duration, int casesCount) {
-    StyledDocument doc = resultPane.getStyledDocument();
-    SimpleAttributeSet[] colors = new SimpleAttributeSet[26];
-    Color[] colorValues = {
-        Color.RED, Color.GREEN, Color.BLUE, Color.ORANGE, Color.MAGENTA, Color.CYAN, Color.PINK,
-        Color.YELLOW, Color.GRAY, Color.DARK_GRAY, Color.LIGHT_GRAY, Color.BLACK, Color.WHITE,
-        new Color(128, 0, 0), new Color(0, 128, 0), new Color(0, 0, 128), new Color(128, 128, 0),
-        new Color(128, 0, 128), new Color(0, 128, 128), new Color(255, 165, 0),
-        new Color(75, 0, 130), new Color(139, 69, 19), new Color(255, 20, 147),
-        new Color(0, 255, 127), new Color(70, 130, 180), new Color(255, 215, 0)
-    };
+        StyledDocument doc = resultPane.getStyledDocument();
+        SimpleAttributeSet[] colors = new SimpleAttributeSet[26];
+        Color[] colorValues = {
+            Color.RED, Color.GREEN, Color.BLUE, Color.ORANGE, Color.MAGENTA, Color.CYAN, Color.PINK,
+            Color.YELLOW, Color.GRAY, Color.DARK_GRAY, Color.LIGHT_GRAY, Color.BLACK, Color.WHITE,
+            new Color(128, 0, 0), new Color(0, 128, 0), new Color(0, 0, 128), new Color(128, 128, 0),
+            new Color(128, 0, 128), new Color(0, 128, 128), new Color(255, 165, 0),
+            new Color(75, 0, 130), new Color(139, 69, 19), new Color(255, 20, 147),
+            new Color(0, 255, 127), new Color(70, 130, 180), new Color(255, 215, 0)
+        };
 
-    for (int i = 0; i < colors.length; i++) {
-        colors[i] = new SimpleAttributeSet();
-        StyleConstants.setForeground(colors[i], colorValues[i]);
-        StyleConstants.setBold(colors[i], true);
-    }
-
-    try {
-        doc.remove(0, doc.getLength());
-        char[][] board = solvedBoard.getBoard();
-        for (char[] row : board) {
-            for (char unit : row) {
-                if (unit == '.') {
-                    doc.insertString(doc.getLength(), "  ", null);
-                } else {
-                    int colorIndex = (unit - 'A') % colors.length;
-                    doc.insertString(doc.getLength(), unit + " ", colors[colorIndex]);
-                }
-            }
-            doc.insertString(doc.getLength(), "\n", null);
+        for (int i = 0; i < colors.length; i++) {
+            colors[i] = new SimpleAttributeSet();
+            StyleConstants.setForeground(colors[i], colorValues[i]);
+            StyleConstants.setBold(colors[i], true);
         }
 
-        // Tambahkan jumlah kasus di bawah board
-        doc.insertString(doc.getLength(), "\nWaktu eksekusi: " + duration + " ms\n", null);
-        doc.insertString(doc.getLength(), "\nJumlah kasus yang diuji: " + casesCount, null);
+        try {
+            doc.remove(0, doc.getLength());
+            char[][] board = solvedBoard.getBoard();
+            for (char[] row : board) {
+                for (char unit : row) {
+                    if (unit == '.') {
+                        doc.insertString(doc.getLength(), "  ", null);
+                    } else {
+                        int colorIndex = (unit - 'A') % colors.length;
+                        doc.insertString(doc.getLength(), unit + " ", colors[colorIndex]);
+                    }
+                }
+                doc.insertString(doc.getLength(), "\n", null);
+            }
 
-    } catch (BadLocationException ex) {
-        ex.printStackTrace();
+            doc.insertString(doc.getLength(), "\nWaktu eksekusi: " + duration + " ms\n", null);
+            doc.insertString(doc.getLength(), "\nJumlah kasus yang diuji: " + casesCount, null);
+
+        } catch (BadLocationException ex) {
+            ex.printStackTrace();
+        }
     }
-}
 
 }
