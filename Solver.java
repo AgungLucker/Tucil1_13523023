@@ -16,11 +16,10 @@ public class Solver {
         }
     }
 
-    // Getter solusi board
+    // Gette
     public Board getSolvedBoard() {
         return new Board(this.board);
     }
-
     public int getCasesCount() {
         return this.casesCount;
     }
@@ -51,10 +50,10 @@ public class Solver {
         Block block = blockOrder.get(blockIdx);
         List<List<int[]>> blockTransformations = block.getBlockTransformations();
 
-        // Coba semua transformasi blok 
+        // Coba semua transformasi (Rotasi + mirror) dari blok
         for (List<int[]> blockTransformation : blockTransformations) {
             casesCount++; 
-            if (tryPlaceBlock(blockOrder, currentBoard, blockIdx, transformation)) {
+            if (tryPlaceBlock(blockOrder, currentBoard, blockIdx, blockTransformation)) {
                 return true;
             }
         }
