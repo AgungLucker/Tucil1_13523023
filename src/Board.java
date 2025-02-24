@@ -1,5 +1,3 @@
-import java.util.Map;
-import java.util.HashMap;
 import java.util.Arrays;
 import java.util.List;
 
@@ -50,7 +48,8 @@ public class Board {
         for (int[] unit : block) {
             int yPosition = unit[0] + y;
             int xPosition = unit[1] + x;
-            if ((yPosition >= N || xPosition >= M || board[yPosition][xPosition] != '0' || board[yPosition][xPosition] == '.')) {
+            if ((yPosition >= N || xPosition >= M || board[yPosition][xPosition] != '0' 
+            || board[yPosition][xPosition] == '.')) {
                 return false;
             }
         }
@@ -74,6 +73,4 @@ public class Board {
         }
         return false;
     }
-    
-
 }

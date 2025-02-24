@@ -16,6 +16,7 @@ public class Main {
     }
 }
 
+// Tampilan Menu awal
 class MainMenuGUI extends JFrame {
     public MainMenuGUI() {
        setTitle("IQ Puzzler Solver");
@@ -57,6 +58,7 @@ class MainMenuGUI extends JFrame {
 
 }
 
+// Tampilan Solver
 class SolverGUI extends JFrame {
     private JTextField filePathField;
     private JButton solveButton, saveButton, exitButton;
@@ -201,10 +203,9 @@ class SolverGUI extends JFrame {
     
     }
 
-
     private void displayResult(Board solvedBoard, long duration, int casesCount) {
         StyledDocument doc = resultPane.getStyledDocument();
-        SimpleAttributeSet[] colors = new SimpleAttributeSet[26];
+        SimpleAttributeSet[] colors = new SimpleAttributeSet[26]; 
         Color[] colorValues = {
             Color.YELLOW, Color.GREEN, Color.BLUE, Color.ORANGE, Color.MAGENTA, Color.CYAN, Color.PINK,
             Color.RED, Color.GRAY, Color.DARK_GRAY, Color.LIGHT_GRAY, Color.BLACK, Color.WHITE,
@@ -214,6 +215,7 @@ class SolverGUI extends JFrame {
             new Color(0, 255, 127), new Color(70, 130, 180), new Color(255, 215, 0)
         };
 
+        // Buat set warna untuk tiap huruf
         for (int i = 0; i < colors.length; i++) {
             colors[i] = new SimpleAttributeSet();
             StyleConstants.setForeground(colors[i], colorValues[i]);

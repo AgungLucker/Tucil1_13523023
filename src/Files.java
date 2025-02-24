@@ -82,7 +82,7 @@ public class Files {
                         }
                     }
                 }
-                }
+            }
             // Baca blok
             blocks = new HashMap<>();
             int i = 0;
@@ -139,7 +139,8 @@ public class Files {
     // Simpan solusi ke file
     public void solutionToFile(char[][] board, String filename) {
         try {
-            File outputFile = new File(filename);
+            File outputFolder = new File("../doc");
+            File outputFile = new File(outputFolder, filename);
             outputFile.createNewFile();
             Formatter fileWriter = new Formatter(outputFile);
             for (char[] row : board) {
