@@ -79,7 +79,7 @@ class SolverGUI extends JFrame {
         filePathField = new JTextField(30);
 
         JButton browseButton = new JButton("Browse File");
-        browseButton.addActionListener(new BrowseButtonListener());
+        browseButton.addActionListener(new inputFile());
         inputPanel.add(new JLabel("File Path:"));
         inputPanel.add(filePathField);
         inputPanel.add(browseButton);
@@ -88,7 +88,7 @@ class SolverGUI extends JFrame {
         JPanel solvePanel = new JPanel(new FlowLayout());
         solveButton = new JButton("Solve");
         solveButton.setEnabled(false);
-        solveButton.addActionListener(new SolveButtonListener());
+        solveButton.addActionListener(new SolverAndResultDisplay());
         solvePanel.add(solveButton);
 
         saveButton = new JButton("Save to File");
@@ -120,7 +120,7 @@ class SolverGUI extends JFrame {
         add(statusLabel, BorderLayout.SOUTH);
     }
     // Mekanisme untuk input file
-    private class BrowseButtonListener implements ActionListener {
+    private class inputFile implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             JFileChooser fileChooser = new JFileChooser();
@@ -156,7 +156,7 @@ class SolverGUI extends JFrame {
     }
 
     // Mekanisme dari button solve
-    private class SolveButtonListener implements ActionListener {
+    private class SolverAndResultDisplay implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             int N = fileReader.getN();
@@ -208,7 +208,7 @@ class SolverGUI extends JFrame {
         SimpleAttributeSet[] colors = new SimpleAttributeSet[26]; 
         Color[] colorValues = {
             Color.YELLOW, Color.GREEN, Color.BLUE, Color.ORANGE, Color.MAGENTA, Color.CYAN, Color.PINK,
-            Color.RED, Color.GRAY, Color.DARK_GRAY, Color.LIGHT_GRAY, Color.BLACK, Color.WHITE,
+            Color.RED, Color.GRAY, Color.DARK_GRAY, Color.LIGHT_GRAY, Color.BLACK, new Color(145, 99, 99),
             new Color(128, 0, 0), new Color(0, 128, 0), new Color(0, 0, 128), new Color(128, 128, 0),
             new Color(128, 0, 128), new Color(0, 128, 128), new Color(255, 165, 0),
             new Color(75, 0, 130), new Color(139, 69, 19), new Color(255, 20, 147),

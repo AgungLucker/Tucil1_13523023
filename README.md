@@ -34,9 +34,13 @@ Muhammad Aufa Farabi - 13523023
    ```sh
    git clone https://github.com/AgungLucker/Tucil1_13523023
    ```
+2. Pindah ke direktori src untuk memulai program
+    ```sh
+    cd src
+    ```
 2. Compile program 
     ```sh
-    javac Main.java Solver.java Block.java Files.java Board.java
+    javac *.java
     ```
 3. Jalankan program dengan command berikut
     ```sh
