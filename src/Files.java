@@ -145,7 +145,11 @@ public class Files {
             Formatter fileWriter = new Formatter(outputFile);
             for (char[] row : board) {
                 for (char unit : row) {
-                    fileWriter.format("%c", unit);
+                    if (unit == '.') {
+                        fileWriter.format("%c", ' '); // Kasus custom
+                    } else {
+                        fileWriter.format("%c", unit); 
+                    }
                 }
                 fileWriter.format("\n");
             }
