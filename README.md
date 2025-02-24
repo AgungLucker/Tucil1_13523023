@@ -12,7 +12,7 @@ Muhammad Aufa Farabi - 13523023
 
 ## Features
 * fitur dasar *solver* permainan IQ Puzzler Pro
-* Bentuk papan *costumizable*
+* Bentuk papan 2D *costumizable*
 * Pembacaan input dari *file* .txt
     ketentuan format pada *file* txt adalah berikut
   - N M P
