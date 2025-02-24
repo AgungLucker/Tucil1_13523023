@@ -81,7 +81,7 @@ public class Solver {
         return false;
     }
 
-    // Mencari semua permutasi urutan blok
+    // cari semua permutasi urutan blok
     private List<List<Block>> getBlockPermutations() {
         List<List<Block>> permutations = new ArrayList<>();
         permutationHelper(blocks, 0, permutations);

@@ -19,6 +19,7 @@ public class Block {
         return block;
     }
 
+    // Normalisasi koordinat blok ke (0,0
     private List<int[]> normalizeBlockCoords(List<int[]> block) {
         int minX = 99999;
         int minY = 99999;

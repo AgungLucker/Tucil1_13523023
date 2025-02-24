@@ -111,7 +111,7 @@ class SolverGUI extends JFrame {
         outputPanel.add(solvePanel, BorderLayout.NORTH);
         outputPanel.add(scrollPane, BorderLayout.CENTER);
 
-        statusLabel = new JLabel("Choose file.");
+        statusLabel = new JLabel("Choose file");
 
         add(inputPanel, BorderLayout.NORTH);
         add(outputPanel, BorderLayout.CENTER);
@@ -206,8 +206,8 @@ class SolverGUI extends JFrame {
         StyledDocument doc = resultPane.getStyledDocument();
         SimpleAttributeSet[] colors = new SimpleAttributeSet[26];
         Color[] colorValues = {
-            Color.RED, Color.GREEN, Color.BLUE, Color.ORANGE, Color.MAGENTA, Color.CYAN, Color.PINK,
-            Color.YELLOW, Color.GRAY, Color.DARK_GRAY, Color.LIGHT_GRAY, Color.BLACK, Color.WHITE,
+            Color.YELLOW, Color.GREEN, Color.BLUE, Color.ORANGE, Color.MAGENTA, Color.CYAN, Color.PINK,
+            Color.RED, Color.GRAY, Color.DARK_GRAY, Color.LIGHT_GRAY, Color.BLACK, Color.WHITE,
             new Color(128, 0, 0), new Color(0, 128, 0), new Color(0, 0, 128), new Color(128, 128, 0),
             new Color(128, 0, 128), new Color(0, 128, 128), new Color(255, 165, 0),
             new Color(75, 0, 130), new Color(139, 69, 19), new Color(255, 20, 147),
@@ -226,7 +226,7 @@ class SolverGUI extends JFrame {
             for (char[] row : board) {
                 for (char unit : row) {
                     if (unit == '.') {
-                        doc.insertString(doc.getLength(), "  ", null);
+                        doc.insertString(doc.getLength(), ". ", null);
                     } else {
                         int colorIndex = (unit - 'A') % colors.length;
                         doc.insertString(doc.getLength(), unit + " ", colors[colorIndex]);

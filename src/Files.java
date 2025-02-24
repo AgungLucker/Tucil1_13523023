@@ -82,7 +82,7 @@ public class Files {
                         }
                     }
                 }
-            }
+                }
             // Baca blok
             blocks = new HashMap<>();
             int i = 0;
@@ -106,13 +106,14 @@ public class Files {
                     i++;
                 }
             }
-            fileReader.close();
+        fileReader.close();
         }
         catch (FileNotFoundException e) {
-            System.out.println("File tidak ditemukan");
-            e.printStackTrace();
+            System.out.println("Error: File tidak ditemukan!");
+            e.printStackTrace(); 
         }
     }
+
 
     // Getter
     public int getN() {
