@@ -49,5 +49,5 @@ Muhammad Aufa Farabi - 13523023
 
 ## Links
 - Project Homepage:
-(https://github.com/praktikum-if1221-logika-komputasional/praktikum-if1221-logika-komputasional-logika-klaten/)
+(https://github.com/AgungLucker/Tucil1_13523023)
 
