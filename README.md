@@ -17,7 +17,6 @@ Muhammad Aufa Farabi - 13523023
     ketentuan format pada *file* txt adalah berikut
   - N M P
   - S (DEFAULT/CUSTOM)
-  - KONFIGURASI
   - PAPAN_CUSTOM (opsional untuk konfigurasi CUSTOM)
   - puzzle_1_shape
   - puzzle_2_shape                    
