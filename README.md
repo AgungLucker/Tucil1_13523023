@@ -2,9 +2,9 @@
 # Tugas Kecil 1 IF2211 Strategi Algoritma
 > IQ Puzzler Pro Solver
 
-IQ Puzzler Pro adalah suatu permainan papan yang mengharuskan pemain untuk mengisi seluruh bagian pada papan dengan blok atau piece yang tersedia
+IQ Puzzler Pro adalah suatu permainan papan yang mengharuskan pemain untuk mengisi seluruh bagian pada papan dengan blok atau *piece* yang tersedia.
 
-Program ini dibuat untuk menyelesaikan permainan IQ Puzzler pro dengan pendekatan Algoritma Brute Force. Pencarian solusi dilakukan dengan mencoba semua urutan dari peletakan blok pada papan. Setiap Blok akan dicoba ditempatkan pada posisi yang kosong pada papan dengan variasi rotasi dan pencerminan pada blok. Apabila blok gagal ditempatkan pada semua posisi pada papan meskipun telah dilakukan rotasi dan pencerminan pada blok, program akan mundur satu langkah untuk mengubah arah rotasi atau pencerminan dari blok sebelumnya atau menguji urutan peletakan blok yang berbeda hingga dapat menemukan solusi akhir.
+Program ini dibuat untuk menyelesaikan permainan IQ Puzzler Pro dengan pendekatan Algoritma *Brute Force*. Pencarian solusi dilakukan dengan mencoba semua urutan dari peletakan blok pada papan. Setiap Blok akan dicoba ditempatkan pada posisi yang kosong pada papan dengan variasi rotasi dan pencerminan pada blok. Apabila blok gagal ditempatkan pada semua posisi pada papan meskipun telah dilakukan rotasi dan pencerminan pada blok, program akan mundur satu langkah untuk mengubah arah rotasi atau pencerminan dari blok sebelumnya atau menguji urutan peletakan blok yang berbeda hingga dapat menemukan solusi akhir.
 
 
 ## Made by

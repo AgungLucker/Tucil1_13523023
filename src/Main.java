@@ -92,7 +92,7 @@ class SolverGUI extends JFrame {
         solvePanel.add(solveButton);
 
         saveButton = new JButton("Save to File");
-        saveButton.setEnabled(false);
+        saveButton.setEnabled(false); //Aktif jika berhasil solve
         saveButton.addActionListener(e -> saveSolutionToFile());
         solvePanel.add(saveButton);
         
@@ -185,6 +185,7 @@ class SolverGUI extends JFrame {
             } else {
                 resultPane.setText("Tidak ada solusi.");
                 statusLabel.setText("Tidak ada solusi yang ditemukan.");
+                exitButton.setEnabled(true);
             }
         }
     }
@@ -206,7 +207,7 @@ class SolverGUI extends JFrame {
     private void displayResult(Board solvedBoard, long duration, int casesCount) {
         StyledDocument doc = resultPane.getStyledDocument();
         SimpleAttributeSet[] colors = new SimpleAttributeSet[26]; 
-        Color[] colorValues = {
+        Color[] colorsList = {
             Color.YELLOW, Color.GREEN, Color.BLUE, Color.ORANGE, Color.MAGENTA, Color.CYAN, Color.PINK,
             Color.RED, Color.GRAY, Color.DARK_GRAY, Color.LIGHT_GRAY, Color.BLACK, new Color(145, 99, 99),
             new Color(128, 0, 0), new Color(0, 128, 0), new Color(0, 0, 128), new Color(128, 128, 0),
@@ -218,7 +219,7 @@ class SolverGUI extends JFrame {
         // Buat set warna untuk tiap huruf
         for (int i = 0; i < colors.length; i++) {
             colors[i] = new SimpleAttributeSet();
-            StyleConstants.setForeground(colors[i], colorValues[i]);
+            StyleConstants.setForeground(colors[i], colorsList[i]);
             StyleConstants.setBold(colors[i], true);
         }
 
