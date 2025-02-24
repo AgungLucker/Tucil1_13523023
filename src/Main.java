@@ -150,6 +150,8 @@ class SolverGUI extends JFrame {
                         statusLabel.setText("File tidak valid. Blok tidak valid.");
                     }
                     filePathField.setText("");
+                    exitButton.setEnabled(true);
+
                 }
             }
         }
@@ -185,6 +187,7 @@ class SolverGUI extends JFrame {
             } else {
                 resultPane.setText("Tidak ada solusi.");
                 statusLabel.setText("Tidak ada solusi yang ditemukan.");
+                
                 exitButton.setEnabled(true);
             }
         }

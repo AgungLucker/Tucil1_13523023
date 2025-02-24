@@ -1,0 +1,12 @@
+6 3 5
+DEFAULT
+F
+FFF
+K
+KK
+KK
+R
+RR
+SSS
+  S
+TT

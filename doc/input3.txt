@@ -1,0 +1,17 @@
+4 6 6 
+DEFAULT
+Z
+ZZZ
+ZZZ
+  L
+  L
+LLL
+R
+R
+GGG
+  G
+  GG
+HH
+B
+B
+

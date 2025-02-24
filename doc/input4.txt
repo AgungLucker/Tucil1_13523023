@@ -1,0 +1,21 @@
+5 7 8
+DEFAULT
+FFF
+F
+FF
+A
+A
+A
+HHHH
+H H
+H
+DDD
+ DD
+YYY
+KK
+K
+KK
+ R
+RRR
+O
+O
